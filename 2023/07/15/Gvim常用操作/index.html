@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Gvim常用操作 | Later的个人博客 </title><meta name="author" content="Guanglong Zhao"><meta name="copyright" content="Guanglong Zhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Gvim常用操作[TOC] 1 前言这篇笔记是vim使用记录。以前实习时用了半年多，从生疏到熟悉也花了一些时间，主要还是用到什么不会的就去百度一下。相关操作用的多了就还是很熟悉的。此外，长期使用后体会到gvim编辑器coding的效率是极高的。回到学校后在自己的windows上也安装了gvim，也在开发中使用。现在长时间不操作现在有些遗忘。 现在工作，决定整理出一个gvim常用操作的文档，可以在自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gvim常用操作">
+<meta property="og:url" content="http://scfmvp.github.io/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Later的个人博客 ">
+<meta property="og:description" content="Gvim常用操作[TOC] 1 前言这篇笔记是vim使用记录。以前实习时用了半年多，从生疏到熟悉也花了一些时间，主要还是用到什么不会的就去百度一下。相关操作用的多了就还是很熟悉的。此外，长期使用后体会到gvim编辑器coding的效率是极高的。回到学校后在自己的windows上也安装了gvim，也在开发中使用。现在长时间不操作现在有些遗忘。 现在工作，决定整理出一个gvim常用操作的文档，可以在自">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://scfmvp.github.io/img/logo.jpg">
+<meta property="article:published_time" content="2023-07-15T00:12:07.000Z">
+<meta property="article:modified_time" content="2023-07-15T09:44:55.871Z">
+<meta property="article:author" content="Guanglong Zhao">
+<meta property="article:tag" content="vim">
+<meta property="article:tag" content="快捷操作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://scfmvp.github.io/img/logo.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://scfmvp.github.io/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Gvim常用操作',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-15 17:44:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Later的个人博客 "><img class="site-icon" src="/img/logo.png"/><span class="site-name">Later的个人博客 </span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Gvim常用操作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-15T00:12:07.000Z" title="发表于 2023-07-15 08:12:07">2023-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-15T09:44:55.871Z" title="更新于 2023-07-15 17:44:55">2023-07-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Gvim常用操作"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="Gvim常用操作"><a href="#Gvim常用操作" class="headerlink" title="Gvim常用操作"></a>Gvim常用操作</h1><p>[TOC]</p>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>这篇笔记是vim使用记录。以前实习时用了半年多，从生疏到熟悉也花了一些时间，主要还是用到什么不会的就去百度一下。相关操作用的多了就还是很熟悉的。此外，长期使用后体会到gvim编辑器coding的效率是极高的。回到学校后在自己的windows上也安装了gvim，也在开发中使用。现在长时间不操作现在有些遗忘。</p>
+<p>现在工作，决定整理出一个gvim常用操作的文档，可以在自己遗忘快速查阅，也可以共享于他人学习。</p>
+<p>此篇笔记不涉及<a href="https://scfmvp.github.io/">gvim及其插件的安装</a>，默认已安装。</p>
+<h1 id="2-认识vim"><a href="#2-认识vim" class="headerlink" title="2 认识vim"></a>2 认识vim</h1><p>vi&#x2F;vim是Linux平台下常用的文本编辑器。</p>
+<p>不同于Windows平台下的文本编辑器。如下图所示，vim分为三个工作模式：</p>
+<p>1 命令模式</p>
+<p>这是进入vim默认的模式。在该模式下可以直接输入<strong>命令</strong>对文本进行笔记。</p>
+<p>如：按下键盘yy，则复制了光标所在行。再按下键盘p，则将寄存器里的文本粘贴到光标的下一行。</p>
+<p>2 输入模型</p>
+<p>输入模式下，就是通过键盘进行文本编辑。</p>
+<p>进入输入模式有三种方法：键入i、a、o。区别在于，键入i进入输入模式时，光标在选中字符前。键入a进入输入模式时，光标在选中字符后。键入o进入输入模式时，光标在选中字符所在行的下一行（新建行）。</p>
+<p>按Esc健退出输入模型，进入命令模式。</p>
+<p>3 底线命令模式</p>
+<p>底线命令模式下也是输入命令，主要是多字符命令。</p>
+<p>在命令模式下输入“:”就会进入底线命令模式，然后键入命令回车即可执行命令，自动回到命令模式。</p>
+<p>如，在命令模式下输入<code>:w</code>，表示保存文本内容。此外<code>:!cmd</code>可以执行终端命令，不过速度比terminal慢。</p>
+<p> <img src="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/vim-vi-workmodel.png" alt="img"> </p>
+<h1 id="3-常用操作"><a href="#3-常用操作" class="headerlink" title="3 常用操作"></a>3 常用操作</h1><p> vi&#x2F;vim键盘图如下，从上可以看到很多常用操作。</p>
+<p><img src="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
+<h2 id="3-1-基本命令"><a href="#3-1-基本命令" class="headerlink" title="3.1 基本命令"></a>3.1 基本命令</h2><ul>
+<li>文件命令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gvim fimename</td>
+<td>通gvim新建filename文件并打开</td>
+<td>在terminal中执行</td>
+</tr>
+<tr>
+<td>:open .&#x2F;flda&#x2F;filename</td>
+<td>在gvim打开时打开&#x2F;新建文件（常用）</td>
+<td>在底部命令模式</td>
+</tr>
+</tbody></table>
+<ul>
+<li>进入编辑模式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>进入编辑模式，光标在选中字符前</td>
+<td>insert</td>
+</tr>
+<tr>
+<td>a</td>
+<td>进入编辑模式，光标在选中字符后</td>
+<td>个人理解为append</td>
+</tr>
+<tr>
+<td>o</td>
+<td>进入编辑模式，光标在选中字符所在行下一行（新建行）</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>文件保存</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>w</td>
+<td>保存文件内容</td>
+<td>write</td>
+</tr>
+<tr>
+<td>q</td>
+<td>进入编辑模式，光标在选中字符后</td>
+<td>quit</td>
+</tr>
+<tr>
+<td>!</td>
+<td>强制执行</td>
+<td></td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>相当于另存为</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在命令模式下，输入“：”进入底线命令模式下使用，三个可以按需组合。</p>
+<p><code>:w</code>保存文件，随后进入命令模式；</p>
+<p><code>:q</code>关闭当前文件，未更改内容生效，若文件内容发生变动则不会退出并给出提示；</p>
+<p><code>:wq</code>保存更改并退出文件；</p>
+<p><code>:q!</code>不考虑是否保存，强制退出，为保存内容将丢失。</p>
+<p><img src="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1689403383138.png" alt="1689403383138"></p>
+<ul>
+<li>文本编辑命令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">yy</td>
+<td>复制光标所在行内容至寄存器中（剪切板）</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">nyy</td>
+<td>从光标所在行开始复制，复制n行</td>
+<td>n这个操作用在很多地方</td>
+</tr>
+<tr>
+<td align="left">shift+y (Y)</td>
+<td>等同于yy命令</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">y0</td>
+<td>复制从行首字符到光标所在前一个字符，（不包括）</td>
+<td>不包括换行，粘贴时在光标字符后插入</td>
+</tr>
+<tr>
+<td align="left">y$</td>
+<td>复制从光标所在字符到行尾字符，（包括）</td>
+<td>同上</td>
+</tr>
+<tr>
+<td align="left">p</td>
+<td>将寄存器内容粘贴，在光标的下一行（）</td>
+<td>paste</td>
+</tr>
+<tr>
+<td align="left">np</td>
+<td>相同内容粘贴n次</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">dd</td>
+<td>删除光标所在行</td>
+<td>delete</td>
+</tr>
+<tr>
+<td align="left">ndd</td>
+<td>从光标所在行开始删除，删除n行</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">shift+d (D)</td>
+<td>删除光标（包括光标字符）至行位的所有字符</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">x</td>
+<td>删除光标选中字符</td>
+<td>shift+x向前删除，不常用</td>
+</tr>
+<tr>
+<td align="left">nx</td>
+<td>删除从光标字符起的n个字符</td>
+<td>多次（单d+方向键）也可以</td>
+</tr>
+<tr>
+<td align="left">r</td>
+<td>替换光标字符：输入r后光标会在当前字符会下方闪烁，再键入新的字符就完成替换。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">shift+r (R)</td>
+<td>批量替换字符：输入R后，再输入的字符将替换光标所在字符，光标移至后一个字符。</td>
+<td>我不常用</td>
+</tr>
+<tr>
+<td align="left">u</td>
+<td>撤销上一步操作</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">ctrl+r</td>
+<td>重复上一次操作（cmd）</td>
+<td>coding常用</td>
+</tr>
+</tbody></table>
+<p>以上都是在命令模式下键入的。</p>
+<p>关于复制还有一个常用的就是<strong>复制一行中的指定几个字符</strong>：</p>
+<p>一般先键入v进入可视模式，再移动光标选中要复制的字符，选择完成后键入单p进行复制，此时复制的内容和之前不一样不，不是整行。粘贴时键入p，就可以将寄存器内容粘贴（插入）在光标所在字符后面。</p>
+<ul>
+<li>移动光标</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h</td>
+<td>光标移动：左</td>
+<td></td>
+</tr>
+<tr>
+<td>j</td>
+<td>光标移动：下</td>
+<td></td>
+</tr>
+<tr>
+<td>k</td>
+<td>光标移动：上</td>
+<td></td>
+</tr>
+<tr>
+<td>l</td>
+<td>光标移动：右</td>
+<td></td>
+</tr>
+<tr>
+<td>gg</td>
+<td>光标快速跳到文本的开头</td>
+<td></td>
+</tr>
+<tr>
+<td>shift+g (G)</td>
+<td>光标快速跳到文本的末尾</td>
+<td></td>
+</tr>
+<tr>
+<td>n+G</td>
+<td>光标移动至第n行</td>
+<td></td>
+</tr>
+<tr>
+<td>:n</td>
+<td>光标移动至第n行</td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td>以单词为单位，向后跳转</td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td>以单词为单位，向前后跳转</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>方向移动我使用方向键和功能键更多，但是之前实习看工程师使用<code>hjkl</code>更多。</p>
+<p>此外光标移动结合几个功能键使用:</p>
+<p><code>home</code>光标移至行首</p>
+<p><code>end</code>光标移至行尾</p>
+<p><code>ctrl+home</code>光标移至文件首，等同</p>
+<p><code>ctrl+end</code>光标移至文件未</p>
+<h2 id="3-2-命令操作"><a href="#3-2-命令操作" class="headerlink" title="3.2 命令操作"></a>3.2 命令操作</h2><ul>
+<li>注释多行代码</li>
+</ul>
+<p>1 光标放在待注释的位置（首行的行首）</p>
+<p>2 键入<code>ctrl+v</code>进入可视块模式，</p>
+<p>3 移动光标选择所需要注释的行</p>
+<p>4 键入<code>shift+i (I)</code>进入输入模式</p>
+<p>5 输入注释符（可多字符）</p>
+<p>6 键入Esc完成注释</p>
+<p>取消注释：<code>ctrl+v</code>选中多行注释符，键入d。</p>
+<p>不一定是注释使用，相同模式都可以，如删除，段中分隔等。</p>
+<p>注意：</p>
+<p><code>v</code>：可视，用于连续选择</p>
+<p><code>ctrl+v</code>：可视块，用于按列选择</p>
+<p><img src="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1689407862037.png" alt="1689407862037"></p>
+<ul>
+<li>查找内容</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:&#x2F;words</td>
+<td>向光标之下寻找一个名称为 words 的字符串。</td>
+<td>这两个都会把所有匹配的结果高亮，我通常只用这个</td>
+</tr>
+<tr>
+<td>:?words</td>
+<td>向光标之上寻找一个名称为 words 的字符串。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>若已知需要查找的某个词，可以将光标放在该词上，或在可视模式下选中该词，然后键入<code>shift+8 （*）</code>进入搜索。</p>
+<p>查找后使用n和N在高亮的匹配词之间跳转：n下一个匹配词，N上一个匹配词。</p>
+<ul>
+<li>替换内容</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">:n1,n2s&#x2F;word1&#x2F;word2&#x2F;gc</td>
+<td>在n1和n2行之间进行搜索，搜索字符为word1，并替换为word2。</td>
+<td>尾部的c是在替换时需要用户确认，可选，常加</td>
+</tr>
+</tbody></table>
+<p>上面的n1，n2还可以使用通配符替代（我自己的理解），0：首行，$：尾行。</p>
+<ul>
+<li>执行代码</li>
+</ul>
+<p><code>:!+&lt;终端中执行的命令&gt;</code>，以执行python脚本为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">！python auto_flow.py</span><br></pre></td></tr></table></figure>
+
+<p>可以和终端一样，通过方向键切换历史执行命令。</p>
+<h2 id="3-3-窗口相关"><a href="#3-3-窗口相关" class="headerlink" title="3.3 窗口相关"></a>3.3 窗口相关</h2><p>多窗口使用场景很多，这块也需要熟练使用。</p>
+<p>一些可能和插件相关，我不确定</p>
+<ul>
+<li>切分窗口</li>
+</ul>
+<p>直接切输入指令:sp和:vsp，命令执行后会切分窗口，新窗口会打开之前窗口打开的文件，在该窗口双击新文件即可。</p>
+<p><code>:sp</code>横向&#x2F;水平切分</p>
+<p><code>:vsp</code>纵向&#x2F;垂直切分（vertical split ）</p>
+<p><img src="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1689411542834.png" alt="1689411542834"></p>
+<p>选中侧边树目录上的文件，这些看插件里的手册。</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">F3</td>
+<td>打开侧边树目录（来自插件nerdtree）</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">r</td>
+<td>在侧边树目录执行，刷新侧边树目录，文件变动需要刷新（常用）</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td><strong>以下命令前提时选中侧边树目录上的文件</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">i</td>
+<td>横向&#x2F;水平切割窗口</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">s</td>
+<td>竖向&#x2F;垂直切割窗口</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">t</td>
+<td>在新窗口打开</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>窗口跳转</li>
+</ul>
+<p>通过命令来切换窗口减少鼠标使用，能提升开发效率。</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>命令释义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ctrl+w j</td>
+<td>活动文件跳转为下方的文件，下方的文件为当前活动文件</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">ctrl+w k</td>
+<td>向上移动</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">ctrl+w h</td>
+<td>向左移动</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">ctrl+w l</td>
+<td>向右移动</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><code>ctrl+w</code>之后加普通方向键也是一样的，我目前还是用这种的。</p>
+<p>还有一个简单点的就是<code>ctrl+w</code>后在键入w，循环切换窗口，选到自己想要的就停止。</p>
+<ul>
+<li>关闭&#x2F;退出窗口</li>
+</ul>
+<p><code>:close</code>关闭当前窗口</p>
+<p><code>:quit</code>关闭当前窗口（不常用）</p>
+<p><code>:only</code>保留当前窗口，关闭其他所有窗口</p>
+<h2 id="3-4-ctags"><a href="#3-4-ctags" class="headerlink" title="3.4 ctags"></a>3.4 ctags</h2><p>这个我用的也不多，但是之前公司工程师在用。占个坑，后面来填。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>按鼠标滑轮，可将选中文字快速键入</p>
+<p>仅常用的，工作中想到再补充~</p>
+<p>整理完成，再次感谢实习导师对我的悉心指导:happy:</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://SCFMVP.github.io">Guanglong Zhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://scfmvp.github.io/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">http://scfmvp.github.io/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SCFMVP.github.io" target="_blank">Later的个人博客 </a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vim/">vim</a><a class="post-meta__tags" href="/tags/%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C/">快捷操作</a></div><div class="post_share"><div class="social-share" data-image="/img/logo.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/15/test/" title="test"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">test</div></div></a></div><div class="next-post pull-right"><a href="/2023/06/21/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Guanglong Zhao</div><div class="author-info__description">Learning Recording Sharing</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SCFMVP" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/scfmvp@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">Gvim常用操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">1 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%AE%A4%E8%AF%86vim"><span class="toc-number">3.</span> <span class="toc-text">2 认识vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">3 常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 命令操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%AA%97%E5%8F%A3%E7%9B%B8%E5%85%B3"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 窗口相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-ctags"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 ctags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">4.5.</span> <span class="toc-text">其他</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/15/test/" title="test">test</a><time datetime="2023-07-15T09:41:08.000Z" title="发表于 2023-07-15 17:41:08">2023-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/15/Gvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="Gvim常用操作">Gvim常用操作</a><time datetime="2023-07-15T00:12:07.000Z" title="发表于 2023-07-15 08:12:07">2023-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/21/hello-world/" title="Hello World">Hello World</a><time datetime="2023-06-21T08:23:26.717Z" title="发表于 2023-06-21 16:23:26">2023-06-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Guanglong Zhao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
